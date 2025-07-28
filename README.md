@@ -1,36 +1,88 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# LLM Speed Dating 💕
+
+Think Tinder, but for Large Language Models!
+
+A fun, interactive web application that helps AI engineers and developers find their perfect LLM match based on use case, budget, priorities, and usage volume.
+
+## What It Does
+
+This app creates a "speed dating" experience for selecting AI models by:
+
+1. **User Profiling**: Collects preferences across 4 categories:
+   - **Use Case**: Chatbot, content generation, data analysis, coding, creative writing, research.
+   - **Budget**: Startup ($0-100), Growing Business ($100-1000), Enterprise ($1000+).
+   - **Priority**: Cost-effective, lightning fast, premium quality, balanced.
+   - **Volume**: Light (<10k), Moderate (10k-100k), Heavy (100k+ requests/month).
+
+2. **Real-time Matching**: Fetches live pricing data from [Helicone's LLM Cost API](https://helicone.ai/llm-cost) to match users with compatible models from 700+ available options.
+
+3. **Personality-Based Results**: Each model has a profile with traits, best use cases, and flirty taglines cause it's TINDER FOR LLMS.
+
+## How It Works
+
+### Architecture Overview
+
+```
+User Input → Profile Creation → API Call → Scoring Algorithm → Match Display
+```
+
+#### LLM Cost API Integration
+
+```typescript
+// Fetches real pricing data
+const response = await fetch("https://www.helicone.ai/api/llm-costs?format=json");
+const data = await response.json();
+```
+
+### Supported Models
+
+The app currently supports matching with these major models:
+- **OpenAI**: GPT-4o, GPT-4o Mini
+- **Anthropic**: Claude 3.5 Sonnet, Claude 3 Haiku
+- **Google**: Gemini 2.0 Flash
+- **Meta**: Llama 3.1 8B
+- **DeepSeek**: DeepSeek Chat
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
+
+- Node.js 18+
+- npm or yarn
+
+### Installation
 
 ```bash
+# Clone the repository
+git clone https://github.com/<your-username>/llm-speed-dating.git
+cd llm-speed-dating
+
+# Install dependencies
+npm install
+
+# Start development server
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Build for Production
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+npm run build
+npm start
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Technical Stack
 
-## Learn More
+- **Framework**: Next.js 15.4.2
+- **Styling**: Tailwind CSS 4
+- **Icons**: Lucide React
+- **Language**: TypeScript
+- **Deployment**: Vercel
 
-To learn more about Next.js, take a look at the following resources:
+## License
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+MIT License - feel free to use this for your own projects!
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+---
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+*Built with ❤️ by @juliettech13 for the AI engineering community*
